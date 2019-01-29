@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using TestTaskForTochka.Models;
 using VkNet;
@@ -221,6 +222,16 @@ namespace TestTaskForTochka.Controller
                     return false;
                 }               
             }
+        }
+         public virtual int GetId(string Id)
+        {
+            if (Id[0] == 'i' && Id[1] == 'd' && Char.IsDigit(Id[2]))
+                return Convert.ToInt32(Id.Substring(2, Id.Length - 2));
+
+            if (Regex.IsMatch(Id, @"^\d+$"))
+                return Convert.ToInt32(Id);
+
+            return 0;
         }
     }
 }

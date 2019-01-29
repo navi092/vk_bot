@@ -134,7 +134,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controller\VkRequest.cs" />
-    <Compile Include="Controller\VerificationEntryLine.cs" />
     <Compile Include="Models\DictionaryLetters.cs" />
     <Compile Include="Models\GET_VK.cs" />
     <Compile Include="Models\POST_VK.cs" />

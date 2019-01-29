@@ -16,7 +16,7 @@ using VkNet.Model.RequestParams;
 using TestTaskForTochka.Controller;
 namespace TestTaskForTochka
 {
-    public class Program
+    public class Program: VkRequest
     {
         public static void Main(string[] args)
         {
@@ -26,9 +26,8 @@ namespace TestTaskForTochka
                 string readEnterUser = Console.ReadLine().ToLower().Replace(" ", "");
                 if (readEnterUser.Replace(" ", "") != "")
                 {
-                    int Id = new VerificationEntryLine().GetId(readEnterUser); // проверяем входную строку на число
-
                     VkRequest vkRequest = new VkRequest();
+                    int Id = vkRequest.GetId(readEnterUser); // проверяем входную строку на число
                     if (vkRequest.Authentication())
                     {
                         if (Id != 0)
@@ -54,7 +53,6 @@ namespace TestTaskForTochka
                 }
                 else
                     Message("Повторите попытку"); 
-                
             }
         }
         public static void Message(string msg)
@@ -62,6 +60,5 @@ namespace TestTaskForTochka
             Console.WriteLine(msg);
         }
     }
-
 }
 
